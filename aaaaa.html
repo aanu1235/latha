@@ -1,0 +1,76 @@
+<html>
+<head>
+  <title>Form Elements Example</title>
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault();
+        const form = event.target;
+      const formData = new FormData(form);
+      for (const [name, value] of formData.entries()) {
+        console.log(`${name}: ${value}`);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.querySelector('form');
+      form.addEventListener('submit', handleFormSubmit);
+    });
+  </script>
+</head>
+<body>
+  <h1>Form Elements Example</h1>
+  <form action="/submit" method="post">
+    <label>Name:</label>
+    <input type="text" id="name" name="Name" required>
+    <br><br>
+    <label>Email:</label>
+    <input type="email" id="email" name="Email" required>
+    <br><br>
+    <label>Password:</label>
+    <input type="password" id="password" name="Password" required>
+    <br><br>
+    <fieldset>
+      <legend>Gender:</legend>
+      <label>
+        <input type="radio" id="male" name="Gender" value="Male" required>
+        Male
+      </label>
+      <br>
+      <label>
+        <input type="radio" id="female" name="Gender" value="Female">
+        Female
+      </label>
+      <br>
+    </fieldset>
+    <br>
+    <fieldset>
+      <legend>Interests:</legend>
+      <label>
+        <input type="checkbox" id="coding" name="Interests" value="Coding">
+        Coding
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" id="reading" name="Interests" value="Reading">
+        Reading
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" id="traveling" name="Interests" value="Traveling">
+        Traveling
+      </label>
+    </fieldset>
+    <br>
+    <label>Country:</label>
+    <select id="country" name="Country">
+      <option value="USA">United States</option>
+      <option value="Canada">Canada</option>
+      <option value="UK">United Kingdom</option>
+      <option value="Australia">Australia</option>
+      <option value="India">India</option>
+    </select>
+    <br><br>
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+  </form>
+</body>
+</html>
